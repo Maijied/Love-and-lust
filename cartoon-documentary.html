@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফরেস্ট ক্রাইম ফাইলস | কক্সবাজার বন ধ্বংসের কার্টুন ডকুমেন্টারি</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0e6d5; /* Parchment-like background */
+            font-family: 'Hind Siliguri', sans-serif;
+            color: #2d3e2f;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .cartoon-font {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Animated Cartoon Elements --- */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .animated-bounce {
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        .animated-wiggle {
+            animation: wiggle 4s ease-in-out infinite;
+        }
+
+        .animated-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .animated-slide {
+            animation: slideIn 1s ease-out;
+        }
+
+        /* --- Header with Cartoon Style --- */
+        .cartoon-header {
+            background: #ffd166; /* Bright yellow */
+            padding: 40px 0;
+            border-bottom: 8px dashed #2d3e2f;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cartoon-header::before {
+            content: "🌳 🌲 🌴";
+            font-size: 80px;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0.2;
+            animation: wiggle 10s linear infinite;
+        }
+
+        .header-title {
+            font-size: 4rem;
+            text-align: center;
+            color: #1f4f2b;
+            text-shadow: 5px 5px 0px #f0f0f0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            background: white;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 60px;
+            margin: 20px auto 0;
+            border: 4px solid #1f4f2b;
+            box-shadow: 8px 8px 0 #1f4f2b;
+        }
+
+        /* --- Section Styles --- */
+        .crime-section {
+            padding: 60px 0;
+            border-bottom: 6px dotted #b5835a;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1f4f2b;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 100px;
+            border: 4px solid #ffb347;
+            box-shadow: 10px 10px 0 #b5835a;
+        }
+
+        .section-heading i {
+            font-size: 3rem;
+            color: #ffb347;
+        }
+
+        /* --- Crime Evidence Cards --- */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .evidence-card {
+            background: white;
+            border: 5px solid #1f4f2b;
+            border-radius: 50px 50px 30px 30px;
+            padding: 30px 20px;
+            box-shadow: 15px 15px 0 #b5835a;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .evidence-card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 20px 20px 0 #1f4f2b;
+        }
+
+        .evidence-card::after {
+            content: "🔍";
+            font-size: 40px;
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: #ffb347;
+            border-radius: 50%;
+            padding: 10px;
+            border: 4px solid #1f4f2b;
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 20px;
+            filter: drop-shadow(5px 5px 0 #ffb347);
+        }
+
+        .crime-label {
+            background: #ffb347;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border: 2px solid #1f4f2b;
+        }
+
+        /* --- Perpetrator Profile --- */
+        .perp-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .perp-card {
+            flex: 1 1 250px;
+            background: #d9e8d4;
+            border: 6px solid #1f4f2b;
+            border-radius: 50% 50% 30px 30px;
+            padding: 30px 20px 20px;
+            text-align: center;
+            box-shadow: 10px 10px 0 #b5835a;
+            position: relative;
+        }
+
+        .perp-avatar {
+            width: 120px;
+            height: 120px;
+            background: #ffb347;
+            border-radius: 50%;
+            border: 6px solid #1f4f2b;
+            margin: -60px auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 10px 0 #b5835a;
+        }
+
+        /* --- Victim Corner --- */
+        .victim-corner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .victim-card {
+            flex: 1 1 200px;
+            background: #f9d6b3;
+            border: 4px solid #a15c3a;
+            border-radius: 30px 10px 30px 10px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .victim-card i {
+            font-size: 3rem;
+            color: #a15c3a;
+        }
+
+        /* --- Sources & Footer --- */
+        .source-box {
+            background: #fff8e7;
+            border: 6px double #1f4f2b;
+            border-radius: 60px 60px 30px 30px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .footer {
+            background: #1f4f2b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 12px solid #ffb347;
+        }
+
+        .footer a {
+            color: #ffb347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-buttons {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-btn {
+            background: #ffb347;
+            color: #1f4f2b;
+            font-family: 'Comic Neue', cursive;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 60px;
+            border: 4px solid #1f4f2b;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 5px 5px 0 #b5835a;
+            transition: 0.1s;
+        }
+
+        .nav-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 #1f4f2b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="nav-buttons animated-slide">
+        <a href="index.html" class="nav-btn"><i class="fas fa-home"></i> মূল গল্প</a>
+        <a href="documentary.html" class="nav-btn"><i class="fas fa-video"></i> প্রামাণ্যচিত্র</a>
+        <a href="#" class="nav-btn" style="background:#1f4f2b; color:#ffb347;"><i class="fas fa-skull"></i> ক্রাইম ফাইলস</a>
+    </div>
+
+    <!-- Cartoon Header -->
+    <header class="cartoon-header">
+        <div class="container">
+            <h1 class="header-title animated-bounce">🔍 ফরেস্ট ক্রাইম ফাইলস 📁</h1>
+            <div class="header-subtitle animated-wiggle">কক্সবাজার বন ধ্বংসের কার্টুন ডসিয়ার</div>
+        </div>
+    </header>
+
+    <!-- Main Crime Scene -->
+    <section class="crime-section">
+        <div class="container">
+            <h2 class="section-heading"><i class="fas fa-map-marked-alt animated-wiggle"></i> মূল অপরাধস্থল: ইনানি রেঞ্জ</h2>
+            <div class="evidence-grid">
+                <div class="evidence-card animated-slide">
+                    <div class="card-icon">🌳➡️💸</div>
+                    <span class="crime-label">অর্থলোভ</span>
+                    <h3>ট্রি সেলিং র‍্যাকেট</h3>
+                    <p>অন্তত <strong>২,০০০ ক্যাসুরিনা গাছ</strong> কেটে বিক্রি। প্রতি গাছ টাকা ৩,০০০। মোট আয়: <strong>৬০ লাখ টাকা</strong>। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+                <div class="evidence-card animated-slide" style="animation-delay:0.1s">
+                    <div class="card-icon">⛰️➡️🏚️</div>
+                    <span class="crime-label">ভূমি দখল</span>
+                    <h৩>পাহাড় গিলে ফেলা</h৩>
+                    <p><strong>২০-৩০টি পাহাড়</strong> সম্পূর্ণ সমতল। প্রতি পাহাড়ের মাটি বিক্রি ২-৫ লাখ টাকায়। মোট আয়: <strong>কোটি টাকারও বেশি</strong>। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+                <div class="evidence-card animated-slide" style="animation-delay:0.2s">
+                    <div class="card-icon">💰🐘</div>
+                    <span class="crime-label">হাতি হত্যা</span>
+                    <h3>প্রতিবন্ধকতা সরান</h3>
+                    <p>গত ৩ বছরে <strong>২টি হাতি মারা হয়েছে</strong>। বন্যপ্রাণীদের আবাসস্থল ধ্বংস করে ফাঁকা জমি তৈরি। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Syndicate (Perpetrators) -->
+    <section class="crime-section" style="background:#f5e5c8;">
+        <div class="container">
+            <h2 class="section-heading"><i class="fas fa-user-secret animated-wiggle"></i> অপরাধ চক্রের সদস্যরা</h2>
+            <div class="perp-grid">
+                <div class="perp-card animated-bounce">
+                    <div class="perp-avatar">👨‍💼</div>
+                    <h3>মো. ফিরোজ-আল-আমিন</h3>
+                    <span class="crime-label">মাস্টারমাইন্ড</span>
+                    <p>ইনানি রেঞ্জ অফিসার। চক্রের মূল নেতা। স্থানীয়দের কাছ থেকে ঘুষ নেওয়ার অভিযোগ। বর্তমানে সাময়িক বরখাস্ত। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+                <div class="perp-card animated-bounce" style="animation-delay:0.2s">
+                    <div class="perp-avatar">👥</div>
+                    <h3>বিট অফিসাররা</h3>
+                    <span class="crime-label">সহযোগী</span>
+                    <p>মনখালী, রাজাপালং, জালিয়াপালং বিটের কর্মকর্তারা সরাসরি জড়িত। ঘুষের বিনিময়ে গাছ পাচার ও পাহাড় কাটার অনুমতি দিতেন। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+                <div class="perp-card animated-bounce" style="animation-delay:0.4s">
+                    <div class="perp-avatar">🤝</div>
+                    <h3>স্থানীয় দালাল চক্র</h3>
+                    <span class="crime-label">ক্ষেত্র কর্মী</span>
+                    <p>স্থানীয় মোড়ল ও দালালরা ঘুষ সংগ্রহ ও জমি দখলের কাজে সরাসরি অংশ নেয়। ভুক্তভোগীদের মামলা দিয়ে হয়রানি করে। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:40px; background:#ffb347; border:4px solid #1f4f2b; border-radius:60px; padding:20px;">
+                <p style="font-size:1.3rem;"><strong>ঘুষের হার:</strong> নতুন বাড়ি বানাতে ৫০-১০০ ক টাকা, সুপারি বাগান ২০-৪০ ক টাকা, গাছ পাচার ৩০-৫০ ক টাকা, জমি বিক্রি ১ লাখ টাকা পর্যন্ত। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Victims Corner -->
+    <section class="crime-section">
+        <div class="container">
+            <h2 class="section-heading"><i class="fas fa-heart-broken animated-wiggle"></i> ভুক্তভোগী ও নিহত</h2>
+            <div class="victim-corner">
+                <div class="victim-card">
+                    <i class="fas fa-paw"></i>
+                    <h3>হাতি</h3>
+                    <p>২টি হাতি নিহত</p>
+                    <small>বিষ ও গুলিতে</small>
+                </div>
+                <div class="victim-card">
+                    <i class="fas fa-user"></i>
+                    <h3>শ্রমিক</h3>
+                    <p>৪ জন নিহত</p>
+                    <small>পাহাড় কাটার সময়</small>
+                </div>
+                <div class="victim-card" style="border-color:#a13a3a;">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>বন কর্মকর্তা</h3>
+                    <p><strong>সাজ্জাদুজ্জামান</strong></p>
+                    <p>মাটি পাচার ঠেকাতে গিয়ে ডাম্প ট্রাকচাপায় নিহত। [সূত্র: নিউএইজ]</p>
+                </div>
+            </div>
+            <!-- Forest Officer Murder Evidence -->
+            <div style="margin-top:40px; background:black; color:white; border:8px solid red; border-radius:40px; padding:30px; text-align:center;">
+                <i class="fas fa-skull-crossbones" style="font-size:4rem; color:red;"></i>
+                <h2 style="color:red;">🔴 পরিকল্পিত হত্যাকাণ্ড?</h2>
+                <p style="font-size:1.3rem;">সাজ্জাদুজ্জামান বনভূমি থেকে মাটি পাচার ঠেকাতে গেলে ডাম্প ট্রাক তাকে চাপা দেয়। সরকার সর্বোচ্চ শাস্তি নিশ্চিতের কথা বলেছে। [সূত্র: নিউএইজ]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence & Legal Fight -->
+    <section class="crime-section" style="background:#e5d5b3;">
+        <div class="container">
+            <h2 class="section-heading"><i class="fas fa-gavel animated-wiggle"></i> আইনি লড়াই ও প্রমাণ</h2>
+            <div class="evidence-grid">
+                <div class="evidence-card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>বরাদ্দ বাতিল</h3>
+                    <p>২০২৪ সালের নভেম্বরে সরকার আনুষ্ঠানিকভাবে ৭০০ একর বনভূমির বরাদ্দ বাতিল করে। [সূত্র: নিউএইজ]</p>
+                </div>
+                <div class="evidence-card">
+                    <div class="card-icon">📜</div>
+                    <h3>হাইকোর্টের স্থগিতাদেশ</h3>
+                    <p>আগের বরাদ্দের বিরুদ্ধে হাইকোর্ট স্থগিতাদেশ দেয়, যা আপিল বিভাগ বহাল রাখে। [সূত্র: নিউএইজ]</p>
+                </div>
+                <div class="evidence-card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>চৌফলদণ্ডী মামলা</h3>
+                    <p>৬ আসামির বিরুদ্ধে ম্যানগ্রোভ ধ্বংসের মামলা, ফরেস্ট কোর্টে বিচারাধীন, জামিন নামঞ্জুর। [সূত্র: পূর্বের তথ্য]</p>
+                </div>
+            </div>
+            <!-- Bribery Network -->
+            <div style="margin-top:40px; background:#fff; border:6px solid #ffb347; border-radius:60px; padding:30px;">
+                <h3 style="display:flex; align-items:center; gap:10px;"><i class="fas fa-hand-holding-usd"></i> দুর্নীতির নেটওয়ার্ক</h3>
+                <p>স্থানীয় সূত্রে জানা গেছে, নির্দিষ্ট হারে ঘুষের বিনিময়ে সবকিছু চলত। যে কেউ টাকা দিলেই পাহাড় কাটা, গাছ পাচার বা বাড়ি তৈরির অনুমতি মিলত। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="crime-section">
+        <div class="container">
+            <div class="source-box">
+                <h2 style="display:flex; gap:10px;"><i class="fas fa-book-open"></i> সূত্রপঞ্জি (গবেষণাভিত্তিক)</h2>
+                <ul style="list-style-type:'📄 '; line-height:2.2;">
+                    <li>টাইমস অফ বাংলাদেশ: "Ukhiya’s green cover allegedly lost to bribery and collusion" (জানুয়ারি ২০২৫) [বিস্তারিত দুর্নীতির তথ্য]</li>
+                    <li>নিউএইজ: "Forest ministry to ensure punishment for killers of Cox’s Bazar forest officer" (২০২৩) [সাজ্জাদুজ্জামান হত্যা]</li>
+                    <li>নিউএইজ: "Govt cancels allocation of forest land for Mujib Academy" (নভেম্বর ২০২৪) [বরাদ্দ বাতিল]</li>
+                    <li>নিউএইজ: "Govt must save Cox’s Bazar forest, relocate project elsewhere" (সম্পাদকীয়) [জাতীয় প্রেক্ষাপট]</li>
+                    <li>ডেইলি স্টার: "JS body’s no to civil service academy plan" [সংসদীয় বিরোধিতা]</li>
+                    <li>প্রথম আলো, ইত্তেফাক, বিডিনিউজ২৪ (বিবিধ প্রতিবেদন)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৫ ফরেস্ট ক্রাইম ফাইলস | একটি কার্টুন ডকুমেন্টারি উদ্যোগ</p>
+            <p>সকল তথ্য সংবাদ মাধ্যম ও সরকারি সূত্র থেকে সংগৃহীত। অপরাধের প্রকৃত চিত্র তুলে ধরতে এই ওয়েবসাইট তৈরি।</p>
+            <p>
+                <a href="index.html">📄 মূল গল্প</a> | 
+                <a href="documentary.html">🎥 প্রামাণ্যচিত্র</a> | 
+                <a href="#">🔍 ক্রাইম ফাইলস</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
