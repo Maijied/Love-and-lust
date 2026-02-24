@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>জীবন বনাম লোভ | কক্সবাজারের বন রক্ষার গল্প</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f5f9f0;
+            color: #2d3e2f;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 {
+            font-family: 'Patrick Hand', cursive;
+            letter-spacing: 1px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header with parallax */
+        .header {
+            background: linear-gradient(rgba(40, 70, 40, 0.7), rgba(20, 40, 20, 0.8)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-attachment: fixed;
+            animation: fadeIn 2s;
+        }
+        .header h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 8px #000;
+            margin-bottom: 1rem;
+            animation: slideUp 1.5s;
+        }
+        .header p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideUp 2s;
+        }
+        .header .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: #ffb347;
+            color: #2d3e2f;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+            animation: bounce 2s infinite;
+        }
+        .header .btn:hover {
+            background-color: #ffa01e;
+            transform: scale(1.05);
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        /* Section styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #c8e0c0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: #1f4f2b;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffb347;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,40,0,0.1);
+            padding: 30px;
+            flex: 1 1 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,60,0,0.2);
+        }
+        .card i {
+            font-size: 3rem;
+            color: #1f4f2b;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #2d5e3b;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #6b8c5c;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            animation: fadeIn 1s;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: #ffb347;
+            border: 4px solid #1f4f2b;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .right::after {
+            left: -12px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: #1f4f2b;
+        }
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 18px; right: auto; }
+            .left::after, .right::after { left: 18px; }
+            .right { left: 0; }
+        }
+        .map-placeholder {
+            background: #d9e8d4;
+            height: 300px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #2d5e3b;
+            border: 3px dashed #6b8c5c;
+            margin: 40px 0;
+            background-image: url('https://images.unsplash.com/photo-1524666041070-9d87656c25bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .map-placeholder::after {
+            content: "🗺️ কক্সবাজার বনাঞ্চল (স্থানচিহ্ন)";
+            background: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+        }
+        .source-box {
+            background: #eaf2e5;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 50px;
+            font-size: 0.95rem;
+        }
+        .source-box a {
+            color: #1f4f2b;
+            text-decoration: none;
+            border-bottom: 1px dotted;
+        }
+        .footer {
+            background: #1f4f2b;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .footer a {
+            color: #ffb347;
+        }
+        .btn-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ffb347;
+            color: #1f4f2b;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0.7;
+            z-index: 100;
+        }
+        .btn-top:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="home">
+        <div class="container">
+            <h1>জীবন বনাম লোভ</h1>
+            <p>কক্সবাজারের বনভূমি, হাতি আর মানুষের গল্প – যে লড়াই এখনও শেষ হয়নি</p>
+            <a href="#story" class="btn">গল্প শুরু করি</a>
+        </div>
+    </header>
+
+    <!-- Back to top button -->
+    <div class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'});">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Story intro -->
+    <section id="story">
+        <div class="container">
+            <h2 class="section-title">বন যেখানে ছিল, সেখানে এখন আগুন</h2>
+            <div class="card-container">
+                <div class="card">
+                    <i class="fas fa-tree"></i>
+                    <h3>৭০০ একর সুরক্ষিত বন</h3>
+                    <p>১৯৩৫ সাল থেকে সংরক্ষিত, ১৯৯৯ সালে পরিবেশগত সংকটাপন্ন এলাকা ঘোষিত। ২০২১ সালে বঙ্গবন্ধু একাডেমির জন্য বরাদ্দ, পরে ২০২৪ সালে বাতিল।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-fire"></i>
+                    <h3>আগুন ও দখল</h3>
+                    <p>বরাদ্দ বাতিলের পরও জমিতে আগুন, হাতি মারা ও পাহাড় কাটার অভিযোগ। স্থানীয় সিন্ডিকেট সক্রিয়।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-paw"></i>
+                    <h3>হাতিরা বিপদে</h3>
+                    <p>বন ধ্বংসের কারণে হাতির খাদ্য ও চলাচলের পথ বন্ধ। মানুষ-হাতি সংঘাত বেড়েছে। গত তিন বছরে ইনানিতে দুটি হাতি নিহত।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section style="background: #eaf2e5;">
+        <div class="container">
+            <h2 class="section-title">সময়রেখা</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>১৯৩৫</h3>
+                        <p>বন আইন, ১৯২৭-এর ২৯ ধারায় সুরক্ষিত বনভূমি হিসেবে ঘোষণা।</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>১৯৯৯</h3>
+                        <p>ঝিলংজা মৌজা পরিবেশগত সংকটাপন্ন এলাকা (ECA) ঘোষিত।</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>২০২১</h3>
+                        <p>তৎকালীন সরকার ৭০০ একর বনভূমি বঙ্গবন্ধু একাডেমির জন্য বরাদ্দ দেয়।</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>২০২১-২২</h3>
+                        <p>হাইকোর্টে রিট পিটিশন, বরাদ্দের ওপর স্থগিতাদেশ। পরে আপিল বিভাগ তা বহাল রাখে।</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>২০২৪ (নভেম্বর)</h3>
+                        <p>অন্তর্বর্তী সরকার বরাদ্দ বাতিল করে, জমি বন বিভাগের নিয়ন্ত্রণে ফেরত।</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>বর্তমান</h3>
+                        <p>জমিতে আগুন, হাতি হত্যা ও দখলের অভিযোগ; মামলা চলমান।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perpetrators -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">চিহ্নিত চক্র</h2>
+            <div class="card-container">
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3>ইনানি রেঞ্জ সিন্ডিকেট</h3>
+                    <p>রেঞ্জ অফিসার মো. ফিরোজ-আল-আমিনের নেতৃত্বে বন ধ্বংস, ঘুষ, গাছ পাচার। বিভাগীয় তদন্ত চলছে, রেঞ্জ অফিসার বরখাস্ত।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>মোহাম্মদ আলী লিটন ও সাইফুল</h3>
+                    <p>চকরিয়ার খুটাখালি ও মধুশিয়ায় অবৈধ বালু উত্তোলন, বন ধ্বংস। মামলা দায়েরের প্রক্রিয়া চলছে।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>জিয়াবুল হক জিয়া</h3>
+                    <p>৪৪টি মামলার আসামি, বর্তমানে কারাগারে। ভূমি দখল ও সন্ত্রাসের মূল হোতা।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>চৌফলদণ্ডী মামলা</h3>
+                    <p>৬ আসামির বিরুদ্ধে ম্যানগ্রোভ ধ্বংসের মামলা, কক্সবাজার ফরেস্ট কোর্টে বিচারাধীন। জামিন নামঞ্জুর।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elephant Victims -->
+    <section style="background: #f0f7ea;">
+        <div class="container">
+            <h2 class="section-title">নীরব প্রাণীরা</h2>
+            <div class="card-container">
+                <div class="card">
+                    <i class="fas fa-kiwi-bird"></i>
+                    <h3>হাতি হত্যা</h3>
+                    <p>ইনানি রেঞ্জে গত তিন বছরে অন্তত দুটি হাতি মারা গেছে। বন ধ্বংসের ফলে হাতির খাদ্যসংকট ও লোকালয়ে প্রবেশ বেড়েছে।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-tree"></i>
+                    <h3>বন উজাড়</h3>
+                    <p>উখিয়া-টেকনাফে রোহিঙ্গা ক্যাম্প ও দখলের কারণে ১২ হাজার একরের বেশি বন ধ্বংস। হাতির বিচরণপথ বন্ধ।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <h3>মানুষও মরে</h3>
+                    <p>পাহাড় কাটার সময় চারজন শ্রমিকের মৃত্যু; বন কর্মকর্তা সাজ্জাদুজ্জামান ডাম্প ট্রাকচাপায় নিহত হন দখল ঠেকাতে গিয়ে।</p>
+                </div>
+            </div>
+            <!-- Map placeholder -->
+            <div class="map-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- Legal Battle -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">আইনি লড়াই</h2>
+            <div class="card-container">
+                <div class="card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>হাইকোর্টের স্থগিতাদেশ</h3>
+                    <p>২০২১ সালের বরাদ্দের বিরুদ্ধে রিট পিটিশনের পর হাইকোর্ট স্থগিতাদেশ দেয়, যা আপিল বিভাগ বহাল রাখে।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>চৌফলদণ্ডী মামলা</h3>
+                    <p>কক্সবাজার ফরেস্ট কোর্টে মামলা (বাদী: মৃণাল চন্দ্র ভাওয়াল)। আসামিরা জামিন পায়নি, তদন্ত চলছে।</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-signature"></i>
+                    <h3>জিয়ার ৪৪ মামলা</h3>
+                    <p>একাধিক মামলায় জামিন নামঞ্জুর, কারাগারে। খালি ফর্ম উদ্ধার তদন্তাধীন।</p>
+                </div>
+            </div>
+            <div class="source-box">
+                <p><strong>সর্বশেষ তথ্য:</strong> ইনানি রেঞ্জ অফিসার বরখাস্ত, চৌফলদণ্ডী মামলার পরবর্তী শুনানি অপেক্ষমাণ। পরিবেশ উপদেষ্টা সৈয়দা রিজওয়ানা হাসান দ্রুত আইনি ব্যবস্থা নেওয়ার নির্দেশ দিয়েছেন।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources & Further Reading -->
+    <section style="background: #dde8d5;">
+        <div class="container">
+            <h2 class="section-title">সূত্র ও প্রামাণ্য</h2>
+            <div class="source-box">
+                <ul style="list-style: none; line-height: 2;">
+                    <li><i class="fas fa-check-circle" style="color: #1f4f2b;"></i> প্রথম আলো, দৈনিক ইত্তেফাক, বিডিনিউজ২৪, ডেইলি স্টার (২০২১-২০২৪)</li>
+                    <li><i class="fas fa-check-circle" style="color: #1f4f2b;"></i> পরিবেশ মন্ত্রণালয়ের আদেশ, ১০ নভেম্বর ২০২৪</li>
+                    <li><i class="fas fa-check-circle" style="color: #1f4f2b;"></i> হাইকোর্টের স্থগিতাদেশ (রিট পিটিশন নং অনির্ধারিত) ও আপিল বিভাগের আদেশ</li>
+                    <li><i class="fas fa-check-circle" style="color: #1f4f2b;"></i> স্থানীয় সাংবাদিক ও পরিবেশকর্মীদের প্রতিবেদন</li>
+                    <li><i class="fas fa-check-circle" style="color: #1f4f2b;"></i> ফেসবুক ভিডিও: <a href="https://www.facebook.com/share/r/1JVf9e4foQ/" target="_blank">আনোয়ারা কোরিয়ান ইপিজেডের হাতি পোড়ানোর ঘটনা</a></li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>দ্রষ্টব্য:</strong> নির্দিষ্ট মামলা নম্বর আদালতের নথি থেকে সংগ্রহ করতে হবে। তথ্য অধিকার আইনে (আরটিআই) আবেদন করে বা আইনজীবীর মাধ্যমে তা সংগ্রহ করা সম্ভব।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৫ | জীবন বনাম লোভ – একটি তথ্যচিত্র উদ্যোগ</p>
+            <p>সকল তথ্য সংবাদ মাধ্যম ও সরকারি সূত্র থেকে সংগৃহীত। বাস্তব ঘটনার ওপর ভিত্তি করে তৈরি।</p>
+            <p>ওয়েবসাইটটি গিটহাব পেজে হোস্ট করার জন্য তৈরি | <a href="#home">উপরে ফিরে যান</a></p>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll for anchor links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
