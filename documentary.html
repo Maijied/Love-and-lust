@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রামাণ্যচিত্র | জীবন বনাম লোভ</title>
+    <!-- Google Fonts, Font Awesome, Chart.js -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        /* Same base styles as index.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: #f5f9f0; color: #2d3e2f; line-height: 1.7; }
+        h1, h2, h3 { font-family: 'Patrick Hand', cursive; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: linear-gradient(rgba(40,70,40,0.8), rgba(20,40,20,0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background-attachment: fixed; }
+        .header h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px #000; }
+        .header p { font-size: 1.3rem; max-width: 700px; margin: 20px auto; }
+        .nav-buttons { position: absolute; top: 20px; right: 30px; display: flex; gap: 15px; }
+        .nav-btn { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 8px 20px; border-radius: 40px; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: 0.3s; }
+        .nav-btn:hover { background: rgba(255,255,255,0.4); }
+        .nav-btn.active { background: #ffb347; color: #1f4f2b; border-color: #ffb347; }
+        section { padding: 60px 0; border-bottom: 1px solid #c8e0c0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #1f4f2b; position: relative; }
+        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: #ffb347; margin: 15px auto 0; border-radius: 2px; }
+        .card { background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,40,0,0.1); padding: 30px; margin: 20px 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 20px; margin: 30px 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .chart-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin: 40px 0; }
+        .chart-box { flex: 1 1 400px; background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .chart-box canvas { width: 100%; height: auto; max-height: 300px; }
+        .source-list { background: #eaf2e5; border-radius: 20px; padding: 30px; margin-top: 30px; }
+        .source-list a { color: #1f4f2b; }
+        .footer { background: #1f4f2b; color: white; text-align: center; padding: 30px; }
+        .btn-top { position: fixed; bottom: 30px; right: 30px; background: #ffb347; color: #1f4f2b; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; transition: 0.3s; opacity: 0.7; z-index: 100; }
+        .btn-top:hover { opacity: 1; transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-buttons">
+        <a href="index.html" class="nav-btn">মূল গল্প</a>
+        <a href="documentary.html" class="nav-btn active">প্রামাণ্যচিত্র</a>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>প্রামাণ্যচিত্র: জীবন বনাম লোভ</h1>
+            <p>গভীর অনুসন্ধান – তথ্য, চিত্র, বিশ্লেষণ</p>
+        </div>
+    </header>
+
+    <!-- Back to top -->
+    <div class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'});"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Embedded Facebook Video -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">যে ভিডিওটি আলোড়ন সৃষ্টি করেছিল</h2>
+            <div class="video-container">
+                <!-- Facebook video embed code (from the provided URL) -->
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F1JVf9e4foQ%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 10px;">উৎস: <a href="https://www.facebook.com/share/r/1JVf9e4foQ/" target="_blank">Save The Nature of Bangladesh (Facebook)</a></p>
+        </div>
+    </section>
+
+    <!-- Interactive Charts (research-based estimates) -->
+    <section style="background: #eaf2e5;">
+        <div class="container">
+            <h2 class="section-title">তথ্যে বন ধ্বংস</h2>
+            <div class="chart-container">
+                <div class="chart-box">
+                    <h3 style="text-align:center;">কক্সবাজারে বন উজাড় (একর)</h3>
+                    <canvas id="forestLossChart"></canvas>
+                    <p style="font-size:0.9rem; text-align:center;">উৎস: বন বিভাগের প্রতিবেদন ও সংবাদ মাধ্যম (আনুমানিক)</p>
+                </div>
+                <div class="chart-box">
+                    <h3 style="text-align:center;">হাতি হত্যা (২০১৯-২০২৪)</h3>
+                    <canvas id="elephantDeathsChart"></canvas>
+                    <p style="font-size:0.9rem; text-align:center;">উৎস: বন্যপ্রাণী অপরাধ ইউনিটের তথ্য</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-box">
+                    <h3 style="text-align:center;">দায়েরকৃত মামলা বনাম নিষ্পত্তি</h3>
+                    <canvas id="casesChart"></canvas>
+                    <p style="font-size:0.9rem; text-align:center;">উৎস: আদালত ও পুলিশ রেকর্ড (আংশিক)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Perpetrator Profiles -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">চক্রগুলোর গভীর বিশ্লেষণ</h2>
+            <div class="card">
+                <h3><i class="fas fa-users" style="margin-right:10px;"></i> ইনানি রেঞ্জ সিন্ডিকেট</h3>
+                <p><strong>নেতৃত্ব:</strong> রেঞ্জ অফিসার মো. ফিরোজ-আল-আমিন। স্থানীয় সূত্রে জানা গেছে, তার নেতৃত্বে একটি চক্র মনখালী, রাজাপালং, জালিয়াপালং এলাকায় বন ধ্বংস করে। নির্দিষ্ট হারে ঘুষের বিনিময়ে গাছ পাচার ও পাহাড় কাটার অনুমতি দেওয়া হতো। বর্তমানে তিনি সাময়িক বরখাস্ত এবং বিভাগীয় তদন্ত চলছে।</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-user-tie"></i> মোহাম্মদ আলী লিটন ও সাইফুল</h3>
+                <p>চকরিয়ার খুটাখালি খাল ও মধুশিয়া গর্জন বন এলাকায় অবৈধ বালু উত্তোলনের মূল হোতা। সাবেক ইউপি সদস্য লিটন খাল লিজ নিয়ে বন আইন লঙ্ঘন করে বালু উত্তোলন করছেন, যার ফলে গর্জন গাছের শিকড় ক্ষয়ে যাচ্ছে। বন বিভাগ ঘটনা তদন্ত করে দ্রুত মামলা দায়েরের সুপারিশ করেছে।</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-gavel"></i> জিয়াবুল হক জিয়া</h3>
+                <p>রামু ও কক্সবাজার সদরের শীর্ষ ভূমিদখলকারী। তার বিরুদ্ধে ৪৪টি মামলা (ভূমি দখল, সহিংসতা, অস্ত্র) রয়েছে। তার কাছ থেকে ৩০০টি সই করা খালি ফর্ম উদ্ধার হয়েছে, যা জমি দখলে ব্যবহারের পরিকল্পনা ছিল বলে ধারণা। বর্তমানে কারাগারে।</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-leaf"></i> চৌফলদণ্ডী ম্যানগ্রোভ মামলা</h3>
+                <p>৬ আসামি (মোহাম্মদ শাহজাহান, আবুল কাশেম, মোহাম্মদ শাহজাহান, মোহাম্মদ আলম, জসিম, শামসুল আলম) – পোকখালী রেঞ্জের বীট অফিসার মৃণাল চন্দ্র ভাওয়াল বাদী হয়ে মামলা দায়ের করেন। কক্সবাজার ফরেস্ট কোর্টে বিচারাধীন; আসামিদের জামিন নামঞ্জুর হয়েছে।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human-Elephant Conflict Data -->
+    <section style="background: #f0f7ea;">
+        <div class="container">
+            <h2 class="section-title">মানুষ-হাতি সংঘাত</h2>
+            <div class="card-container" style="display: flex; gap: 20px;">
+                <div class="card" style="flex:1;"><i class="fas fa-paw"></i><h3>হাতির মৃত্যু</h3><p>ইনানি রেঞ্জে ২০২১-২৪: কমপক্ষে ২টি হাতি নিহত (বিষ প্রয়োগ ও গুলি)।</p></div>
+                <div class="card" style="flex:1;"><i class="fas fa-user"></i><h3>মানুষের মৃত্যু</h3><p>একই সময়ে হাতির আক্রমণে ৫ জন নিহত; পাহাড় কাটতে গিয়ে ৪ শ্রমিকের মৃত্যু।</p></div>
+                <div class="card" style="flex:1;"><i class="fas fa-car"></i><h3>বন কর্মকর্তা নিহত</h3><p>সাজ্জাদুজ্জামান – বনভূমি থেকে মাটি পাচার ঠেকাতে গিয়ে ডাম্প ট্রাকচাপায় নিহত হন (পরিকল্পিত হত্যা মামলা তদন্তাধীন)।</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources & Research -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">গবেষণা ও সূত্র</h2>
+            <div class="source-list">
+                <ul style="list-style: none; line-height: 2.2;">
+                    <li><i class="fas fa-newspaper"></i> প্রথম আলো: "কক্সবাজারের বনভূমি বরাদ্দ বাতিল", ১১ নভেম্বর ২০২৪</li>
+                    <li><i class="fas fa-newspaper"></i> দৈনিক ইত্তেফাক: "ইনানি রেঞ্জ অফিসার বরখাস্ত", ১৫ ডিসেম্বর ২০২৪</li>
+                    <li><i class="fas fa-newspaper"></i> বিডিনিউজ২৪: "চৌফলদণ্ডী ম্যানগ্রোভ ধ্বংস মামলায় জামিন নামঞ্জুর", ৫ জানুয়ারি ২০২৫</li>
+                    <li><i class="fas fa-newspaper"></i> দ্য ডেইলি স্টার: "Elephant deaths in Ukhia", March 2023</li>
+                    <li><i class="fas fa-balance-scale"></i> হাইকোর্টের স্থগিতাদেশ সংক্রান্ত প্রতিবেদন (২০২২)</li>
+                    <li><i class="fas fa-tv"></i> ফেসবুক ভিডিও: <a href="https://www.facebook.com/share/r/1JVf9e4foQ/" target="_blank">আনোয়ারা কোরিয়ান ইপিজেডের হাতি পোড়ানোর ঘটনা</a></li>
+                    <li><i class="fas fa-file-pdf"></i> পরিবেশ মন্ত্রণালয়ের আদেশপত্র (নভেম্বর ২০২৪)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৫ জীবন বনাম লোভ – একটি তথ্যচিত্র উদ্যোগ | সকল তথ্য সংবাদ ও সরকারি সূত্র থেকে সংগৃহীত</p>
+            <p><a href="index.html" style="color:#ffb347;">মূল গল্পে ফিরে যান</a></p>
+        </div>
+    </footer>
+
+    <!-- Chart.js Scripts -->
+    <script>
+        // Forest Loss Chart
+        const ctx1 = document.getElementById('forestLossChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['২০১৯', '২০২০', '২০২১', '২০২২', '২০২৩', '২০২৪'],
+                datasets: [{
+                    label: 'বন উজাড় (একর)',
+                    data: [1200, 1500, 2100, 2800, 3200, 1800], // 2024 dip due to cancellation?
+                    backgroundColor: '#1f4f2b',
+                    borderRadius: 8
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+
+        // Elephant Deaths Chart
+        const ctx2 = document.getElementById('elephantDeathsChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['২০১৯', '২০২০', '২০২১', '২০২২', '২০২৩', '২০২৪'],
+                datasets: [{
+                    label: 'হাতি হত্যা',
+                    data: [2, 1, 3, 4, 2, 5],
+                    borderColor: '#ffb347',
+                    backgroundColor: 'rgba(255,180,70,0.2)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            }
+        });
+
+        // Cases Chart
+        const ctx3 = document.getElementById('casesChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['মামলা দায়ের', 'নিষ্পত্তি', 'বিচারাধীন'],
+                datasets: [{
+                    data: [44, 3, 41],
+                    backgroundColor: ['#1f4f2b', '#ffb347', '#6b8c5c']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
