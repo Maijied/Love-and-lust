@@ -4,143 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>প্রামাণ্যচিত্র | জীবন বনাম লোভ</title>
-    <!-- Google Fonts, Font Awesome, Chart.js -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        /* Same base styles as index.html */
+        /* Same styles as index.html – copy from index.html style section */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Hind Siliguri', sans-serif; background-color: #f5f9f0; color: #2d3e2f; line-height: 1.7; }
-        h1, h2, h3 { font-family: 'Patrick Hand', cursive; }
+        body { background-color: #f0e6d5; font-family: 'Hind Siliguri', sans-serif; color: #2d3e2f; line-height: 1.6; }
+        h1, h2, h3, .cartoon-font { font-family: 'Comic Neue', cursive; font-weight: 700; letter-spacing: 0.5px; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .header { background: linear-gradient(rgba(40,70,40,0.8), rgba(20,40,20,0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background-attachment: fixed; }
-        .header h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px #000; }
-        .header p { font-size: 1.3rem; max-width: 700px; margin: 20px auto; }
-        .nav-buttons { position: absolute; top: 20px; right: 30px; display: flex; gap: 15px; }
-        .nav-btn { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 8px 20px; border-radius: 40px; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: 0.3s; }
-        .nav-btn:hover { background: rgba(255,255,255,0.4); }
-        .nav-btn.active { background: #ffb347; color: #1f4f2b; border-color: #ffb347; }
-        section { padding: 60px 0; border-bottom: 1px solid #c8e0c0; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #1f4f2b; position: relative; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: #ffb347; margin: 15px auto 0; border-radius: 2px; }
-        .card { background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,40,0,0.1); padding: 30px; margin: 20px 0; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 20px; margin: 30px 0; }
+        @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
+        @keyframes wiggle { 0%,100%{transform:rotate(0deg);} 25%{transform:rotate(5deg);} 75%{transform:rotate(-5deg);} }
+        @keyframes slideIn { from{transform:translateX(-50px);opacity:0;} to{transform:translateX(0);opacity:1;} }
+        .animated-bounce { animation: bounce 3s ease-in-out infinite; }
+        .animated-wiggle { animation: wiggle 4s ease-in-out infinite; }
+        .animated-slide { animation: slideIn 1s ease-out; }
+        .cartoon-header { background: #ffd166; padding: 40px 0; border-bottom: 8px dashed #2d3e2f; position: relative; overflow: hidden; }
+        .cartoon-header::before { content: "🌳 🌲 🌴"; font-size: 80px; position: absolute; bottom: -20px; left: 0; width: 100%; text-align: center; opacity: 0.2; animation: wiggle 10s linear infinite; }
+        .header-title { font-size: 4rem; text-align: center; color: #1f4f2b; text-shadow: 5px 5px 0px #f0f0f0; position: relative; z-index: 10; }
+        .header-subtitle { text-align: center; font-size: 1.5rem; background: white; display: inline-block; padding: 10px 30px; border-radius: 60px; margin: 20px auto 0; border: 4px solid #1f4f2b; box-shadow: 8px 8px 0 #1f4f2b; }
+        .nav-buttons { position: sticky; top: 20px; z-index: 100; display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .nav-btn { background: #ffb347; color: #1f4f2b; font-family: 'Comic Neue', cursive; font-weight: bold; padding: 12px 30px; border-radius: 60px; border: 4px solid #1f4f2b; text-decoration: none; font-size: 1.2rem; box-shadow: 5px 5px 0 #b5835a; transition: 0.1s; }
+        .nav-btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #1f4f2b; }
+        .nav-btn.active { background: #1f4f2b; color: #ffb347; border-color: #ffb347; box-shadow: 5px 5px 0 #ffb347; }
+        .crime-section { padding: 60px 0; border-bottom: 6px dotted #b5835a; }
+        .section-heading { font-size: 3rem; margin-bottom: 40px; display: flex; align-items: center; gap: 15px; background: #1f4f2b; color: white; padding: 15px 30px; border-radius: 100px; border: 4px solid #ffb347; box-shadow: 10px 10px 0 #b5835a; }
+        .section-heading i { font-size: 3rem; color: #ffb347; }
+        .evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .evidence-card { background: white; border: 5px solid #1f4f2b; border-radius: 50px 50px 30px 30px; padding: 30px 20px; box-shadow: 15px 15px 0 #b5835a; transition: transform 0.2s; position: relative; }
+        .evidence-card:hover { transform: translate(-5px, -5px); box-shadow: 20px 20px 0 #1f4f2b; }
+        .evidence-card::after { content: "🔍"; font-size: 40px; position: absolute; top: -20px; right: -20px; background: #ffb347; border-radius: 50%; padding: 10px; border: 4px solid #1f4f2b; }
+        .card-icon { font-size: 4rem; text-align: center; margin-bottom: 20px; filter: drop-shadow(5px 5px 0 #ffb347); }
+        .crime-label { background: #ffb347; display: inline-block; padding: 5px 20px; border-radius: 40px; font-weight: bold; margin-bottom: 15px; border: 2px solid #1f4f2b; }
+        .chart-box { background: white; border: 5px solid #1f4f2b; border-radius: 50px; padding: 30px; box-shadow: 10px 10px 0 #b5835a; margin: 30px 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 6px solid #1f4f2b; border-radius: 60px; box-shadow: 15px 15px 0 #b5835a; margin: 40px 0; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .chart-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin: 40px 0; }
-        .chart-box { flex: 1 1 400px; background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .chart-box canvas { width: 100%; height: auto; max-height: 300px; }
-        .source-list { background: #eaf2e5; border-radius: 20px; padding: 30px; margin-top: 30px; }
-        .source-list a { color: #1f4f2b; }
-        .footer { background: #1f4f2b; color: white; text-align: center; padding: 30px; }
-        .btn-top { position: fixed; bottom: 30px; right: 30px; background: #ffb347; color: #1f4f2b; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; transition: 0.3s; opacity: 0.7; z-index: 100; }
-        .btn-top:hover { opacity: 1; transform: scale(1.1); }
+        .perp-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .perp-card { flex: 1 1 250px; background: #d9e8d4; border: 6px solid #1f4f2b; border-radius: 50% 50% 30px 30px; padding: 30px 20px 20px; text-align: center; box-shadow: 10px 10px 0 #b5835a; }
+        .perp-avatar { width: 120px; height: 120px; background: #ffb347; border-radius: 50%; border: 6px solid #1f4f2b; margin: -60px auto 20px; display: flex; align-items: center; justify-content: center; font-size: 4rem; box-shadow: 0 10px 0 #b5835a; }
+        .victim-corner { display: flex; flex-wrap: wrap; gap: 20px; }
+        .victim-card { flex: 1 1 200px; background: #f9d6b3; border: 4px solid #a15c3a; border-radius: 30px 10px 30px 10px; padding: 20px; text-align: center; }
+        .victim-card i { font-size: 3rem; color: #a15c3a; }
+        .source-box { background: #fff8e7; border: 6px double #1f4f2b; border-radius: 60px 60px 30px 30px; padding: 40px; margin: 50px 0; }
+        .footer { background: #1f4f2b; color: white; padding: 40px 0; text-align: center; border-top: 12px solid #ffb347; }
+        .footer a { color: #ffb347; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
-    <div class="nav-buttons">
-        <a href="index.html" class="nav-btn">মূল গল্প</a>
-        <a href="documentary.html" class="nav-btn active">প্রামাণ্যচিত্র</a>
+    <div class="nav-buttons animated-slide">
+        <a href="index.html" class="nav-btn"><i class="fas fa-home"></i> মূল গল্প</a>
+        <a href="documentary.html" class="nav-btn active"><i class="fas fa-video"></i> প্রামাণ্যচিত্র</a>
+        <a href="cartoon-documentary.html" class="nav-btn"><i class="fas fa-skull"></i> ক্রাইম ফাইলস</a>
     </div>
 
     <!-- Header -->
-    <header class="header">
+    <header class="cartoon-header">
         <div class="container">
-            <h1>প্রামাণ্যচিত্র: জীবন বনাম লোভ</h1>
-            <p>গভীর অনুসন্ধান – তথ্য, চিত্র, বিশ্লেষণ</p>
+            <h1 class="header-title animated-bounce">🎥 প্রামাণ্যচিত্র: জীবন বনাম লোভ</h1>
+            <div class="header-subtitle animated-wiggle">গভীর অনুসন্ধান – তথ্য, চিত্র, বিশ্লেষণ</div>
         </div>
     </header>
 
-    <!-- Back to top -->
-    <div class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'});"><i class="fas fa-arrow-up"></i></div>
-
-    <!-- Embedded Facebook Video -->
-    <section>
+    <!-- Facebook Video -->
+    <section class="crime-section">
         <div class="container">
-            <h2 class="section-title">যে ভিডিওটি আলোড়ন সৃষ্টি করেছিল</h2>
+            <h2 class="section-heading"><i class="fab fa-facebook animated-wiggle"></i> যে ভিডিওটি আলোড়ন সৃষ্টি করেছিল</h2>
             <div class="video-container">
-                <!-- Facebook video embed code (from the provided URL) -->
                 <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F1JVf9e4foQ%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
-            <p style="text-align: center; margin-top: 10px;">উৎস: <a href="https://www.facebook.com/share/r/1JVf9e4foQ/" target="_blank">Save The Nature of Bangladesh (Facebook)</a></p>
+            <p style="text-align:center;">উৎস: <a href="https://www.facebook.com/share/r/1JVf9e4foQ/" target="_blank">Save The Nature of Bangladesh (Facebook)</a></p>
         </div>
     </section>
 
-    <!-- Interactive Charts (research-based estimates) -->
-    <section style="background: #eaf2e5;">
+    <!-- Charts -->
+    <section class="crime-section" style="background:#f5e5c8;">
         <div class="container">
-            <h2 class="section-title">তথ্যে বন ধ্বংস</h2>
-            <div class="chart-container">
-                <div class="chart-box">
-                    <h3 style="text-align:center;">কক্সবাজারে বন উজাড় (একর)</h3>
-                    <canvas id="forestLossChart"></canvas>
-                    <p style="font-size:0.9rem; text-align:center;">উৎস: বন বিভাগের প্রতিবেদন ও সংবাদ মাধ্যম (আনুমানিক)</p>
-                </div>
-                <div class="chart-box">
-                    <h3 style="text-align:center;">হাতি হত্যা (২০১৯-২০২৪)</h3>
-                    <canvas id="elephantDeathsChart"></canvas>
-                    <p style="font-size:0.9rem; text-align:center;">উৎস: বন্যপ্রাণী অপরাধ ইউনিটের তথ্য</p>
-                </div>
+            <h2 class="section-heading"><i class="fas fa-chart-bar animated-wiggle"></i> তথ্যে বন ধ্বংস</h2>
+            <div class="chart-box">
+                <h3>কক্সবাজারে বন উজাড় (একর)</h3>
+                <canvas id="forestLossChart" width="400" height="200"></canvas>
+                <p style="font-size:0.9rem;">উৎস: বন বিভাগের প্রতিবেদন ও সংবাদ মাধ্যম (আনুমানিক)</p>
             </div>
-            <div class="chart-container">
-                <div class="chart-box">
-                    <h3 style="text-align:center;">দায়েরকৃত মামলা বনাম নিষ্পত্তি</h3>
-                    <canvas id="casesChart"></canvas>
-                    <p style="font-size:0.9rem; text-align:center;">উৎস: আদালত ও পুলিশ রেকর্ড (আংশিক)</p>
-                </div>
+            <div class="chart-box">
+                <h3>হাতি হত্যা (২০১৯-২০২৪)</h3>
+                <canvas id="elephantDeathsChart" width="400" height="200"></canvas>
+                <p style="font-size:0.9rem;">উৎস: বন্যপ্রাণী অপরাধ ইউনিটের তথ্য</p>
+            </div>
+            <div class="chart-box">
+                <h3>দায়েরকৃত মামলা বনাম নিষ্পত্তি</h3>
+                <canvas id="casesChart" width="400" height="200"></canvas>
+                <p style="font-size:0.9rem;">উৎস: আদালত ও পুলিশ রেকর্ড (আংশিক)</p>
             </div>
         </div>
     </section>
 
     <!-- Detailed Perpetrator Profiles -->
-    <section>
+    <section class="crime-section">
         <div class="container">
-            <h2 class="section-title">চক্রগুলোর গভীর বিশ্লেষণ</h2>
-            <div class="card">
-                <h3><i class="fas fa-users" style="margin-right:10px;"></i> ইনানি রেঞ্জ সিন্ডিকেট</h3>
-                <p><strong>নেতৃত্ব:</strong> রেঞ্জ অফিসার মো. ফিরোজ-আল-আমিন। স্থানীয় সূত্রে জানা গেছে, তার নেতৃত্বে একটি চক্র মনখালী, রাজাপালং, জালিয়াপালং এলাকায় বন ধ্বংস করে। নির্দিষ্ট হারে ঘুষের বিনিময়ে গাছ পাচার ও পাহাড় কাটার অনুমতি দেওয়া হতো। বর্তমানে তিনি সাময়িক বরখাস্ত এবং বিভাগীয় তদন্ত চলছে।</p>
+            <h2 class="section-heading"><i class="fas fa-user-secret animated-wiggle"></i> চক্রগুলোর গভীর বিশ্লেষণ</h2>
+            <div class="perp-grid">
+                <div class="perp-card">
+                    <div class="perp-avatar">👨‍💼</div>
+                    <h3>মো. ফিরোজ-আল-আমিন</h3>
+                    <span class="crime-label">মাস্টারমাইন্ড</span>
+                    <p>ইনানি রেঞ্জ অফিসার। চক্রের মূল নেতা। ঘুষের বিনিময়ে বন ধ্বংস। বর্তমানে সাময়িক বরখাস্ত। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
+                </div>
+                <div class="perp-card">
+                    <div class="perp-avatar">👥</div>
+                    <h3>বিট অফিসাররা</h3>
+                    <span class="crime-label">সহযোগী</span>
+                    <p>মনখালী, রাজাপালং, জালিয়াপালং বিটের কর্মকর্তারা সরাসরি জড়িত। ঘুষের বিনিময়ে গাছ পাচার ও পাহাড় কাটার অনুমতি দিতেন।</p>
+                </div>
+                <div class="perp-card">
+                    <div class="perp-avatar">🤝</div>
+                    <h3>স্থানীয় দালাল চক্র</h3>
+                    <span class="crime-label">ক্ষেত্র কর্মী</span>
+                    <p>স্থানীয় মোড়ল ও দালালরা ঘুষ সংগ্রহ ও জমি দখলের কাজে সরাসরি অংশ নেয়।</p>
+                </div>
             </div>
-            <div class="card">
-                <h3><i class="fas fa-user-tie"></i> মোহাম্মদ আলী লিটন ও সাইফুল</h3>
-                <p>চকরিয়ার খুটাখালি খাল ও মধুশিয়া গর্জন বন এলাকায় অবৈধ বালু উত্তোলনের মূল হোতা। সাবেক ইউপি সদস্য লিটন খাল লিজ নিয়ে বন আইন লঙ্ঘন করে বালু উত্তোলন করছেন, যার ফলে গর্জন গাছের শিকড় ক্ষয়ে যাচ্ছে। বন বিভাগ ঘটনা তদন্ত করে দ্রুত মামলা দায়েরের সুপারিশ করেছে।</p>
-            </div>
-            <div class="card">
-                <h3><i class="fas fa-gavel"></i> জিয়াবুল হক জিয়া</h3>
-                <p>রামু ও কক্সবাজার সদরের শীর্ষ ভূমিদখলকারী। তার বিরুদ্ধে ৪৪টি মামলা (ভূমি দখল, সহিংসতা, অস্ত্র) রয়েছে। তার কাছ থেকে ৩০০টি সই করা খালি ফর্ম উদ্ধার হয়েছে, যা জমি দখলে ব্যবহারের পরিকল্পনা ছিল বলে ধারণা। বর্তমানে কারাগারে।</p>
-            </div>
-            <div class="card">
-                <h3><i class="fas fa-leaf"></i> চৌফলদণ্ডী ম্যানগ্রোভ মামলা</h3>
-                <p>৬ আসামি (মোহাম্মদ শাহজাহান, আবুল কাশেম, মোহাম্মদ শাহজাহান, মোহাম্মদ আলম, জসিম, শামসুল আলম) – পোকখালী রেঞ্জের বীট অফিসার মৃণাল চন্দ্র ভাওয়াল বাদী হয়ে মামলা দায়ের করেন। কক্সবাজার ফরেস্ট কোর্টে বিচারাধীন; আসামিদের জামিন নামঞ্জুর হয়েছে।</p>
+            <div style="margin-top:40px; background:#ffb347; border:4px solid #1f4f2b; border-radius:60px; padding:20px;">
+                <p><strong>ঘুষের হার:</strong> নতুন বাড়ি বানাতে ৫০-১০০ ক টাকা, সুপারি বাগান ২০-৪০ ক টাকা, গাছ পাচার ৩০-৫০ ক টাকা, জমি বিক্রি ১ লাখ টাকা পর্যন্ত। [সূত্র: টাইমস অফ বাংলাদেশ]</p>
             </div>
         </div>
     </section>
 
-    <!-- Human-Elephant Conflict Data -->
-    <section style="background: #f0f7ea;">
+    <!-- Victims Details -->
+    <section class="crime-section" style="background:#f0e6d5;">
         <div class="container">
-            <h2 class="section-title">মানুষ-হাতি সংঘাত</h2>
-            <div class="card-container" style="display: flex; gap: 20px;">
-                <div class="card" style="flex:1;"><i class="fas fa-paw"></i><h3>হাতির মৃত্যু</h3><p>ইনানি রেঞ্জে ২০২১-২৪: কমপক্ষে ২টি হাতি নিহত (বিষ প্রয়োগ ও গুলি)।</p></div>
-                <div class="card" style="flex:1;"><i class="fas fa-user"></i><h3>মানুষের মৃত্যু</h3><p>একই সময়ে হাতির আক্রমণে ৫ জন নিহত; পাহাড় কাটতে গিয়ে ৪ শ্রমিকের মৃত্যু।</p></div>
-                <div class="card" style="flex:1;"><i class="fas fa-car"></i><h3>বন কর্মকর্তা নিহত</h3><p>সাজ্জাদুজ্জামান – বনভূমি থেকে মাটি পাচার ঠেকাতে গিয়ে ডাম্প ট্রাকচাপায় নিহত হন (পরিকল্পিত হত্যা মামলা তদন্তাধীন)।</p></div>
+            <h2 class="section-heading"><i class="fas fa-heart-broken animated-wiggle"></i> মানুষ-হাতি সংঘাত</h2>
+            <div class="victim-corner">
+                <div class="victim-card">
+                    <i class="fas fa-paw"></i>
+                    <h3>হাতির মৃত্যু</h3>
+                    <p>ইনানি রেঞ্জে ২০২১-২৪: কমপক্ষে ২টি হাতি নিহত (বিষ প্রয়োগ ও গুলি)।</p>
+                </div>
+                <div class="victim-card">
+                    <i class="fas fa-user"></i>
+                    <h3>মানুষের মৃত্যু</h3>
+                    <p>হাতির আক্রমণে ৫ জন নিহত; পাহাড় কাটতে গিয়ে ৪ শ্রমিকের মৃত্যু।</p>
+                </div>
+                <div class="victim-card" style="border-color:#a13a3a;">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>বন কর্মকর্তা নিহত</h3>
+                    <p><strong>সাজ্জাদুজ্জামান</strong> – মাটি পাচার ঠেকাতে গিয়ে ডাম্প ট্রাকচাপায় নিহত। [সূত্র: নিউএইজ]</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sources & Research -->
-    <section>
+    <!-- Sources -->
+    <section class="crime-section">
         <div class="container">
-            <h2 class="section-title">গবেষণা ও সূত্র</h2>
-            <div class="source-list">
-                <ul style="list-style: none; line-height: 2.2;">
-                    <li><i class="fas fa-newspaper"></i> প্রথম আলো: "কক্সবাজারের বনভূমি বরাদ্দ বাতিল", ১১ নভেম্বর ২০২৪</li>
-                    <li><i class="fas fa-newspaper"></i> দৈনিক ইত্তেফাক: "ইনানি রেঞ্জ অফিসার বরখাস্ত", ১৫ ডিসেম্বর ২০২৪</li>
-                    <li><i class="fas fa-newspaper"></i> বিডিনিউজ২৪: "চৌফলদণ্ডী ম্যানগ্রোভ ধ্বংস মামলায় জামিন নামঞ্জুর", ৫ জানুয়ারি ২০২৫</li>
-                    <li><i class="fas fa-newspaper"></i> দ্য ডেইলি স্টার: "Elephant deaths in Ukhia", March 2023</li>
-                    <li><i class="fas fa-balance-scale"></i> হাইকোর্টের স্থগিতাদেশ সংক্রান্ত প্রতিবেদন (২০২২)</li>
-                    <li><i class="fas fa-tv"></i> ফেসবুক ভিডিও: <a href="https://www.facebook.com/share/r/1JVf9e4foQ/" target="_blank">আনোয়ারা কোরিয়ান ইপিজেডের হাতি পোড়ানোর ঘটনা</a></li>
-                    <li><i class="fas fa-file-pdf"></i> পরিবেশ মন্ত্রণালয়ের আদেশপত্র (নভেম্বর ২০২৪)</li>
+            <div class="source-box">
+                <h2 style="display:flex; gap:10px;"><i class="fas fa-book-open"></i> গবেষণা ও সূত্র</h2>
+                <ul style="list-style-type:'📄 '; line-height:2;">
+                    <li>টাইমস অফ বাংলাদেশ: "Ukhiya’s green cover allegedly lost to bribery and collusion" (জানুয়ারি ২০২৫)</li>
+                    <li>নিউএইজ: "Forest ministry to ensure punishment for killers of Cox’s Bazar forest officer" (২০২৩)</li>
+                    <li>নিউএইজ: "Govt cancels allocation of forest land for Mujib Academy" (নভেম্বর ২০২৪)</li>
+                    <li>ডেইলি স্টার: "JS body’s no to civil service academy plan"</li>
+                    <li>প্রথম আলো: "কক্সবাজারের বনভূমি বরাদ্দ বাতিল", ১১ নভেম্বর ২০২৪</li>
+                    <li>ইত্তেফাক: "ইনানি রেঞ্জ অফিসার বরখাস্ত", ১৫ ডিসেম্বর ২০২৪</li>
+                    <li>বিডিনিউজ২৪: "চৌফলদণ্ডী ম্যানগ্রোভ ধ্বংস মামলায় জামিন নামঞ্জুর", ৫ জানুয়ারি ২০২৫</li>
                 </ul>
             </div>
         </div>
@@ -149,14 +176,18 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© ২০২৫ জীবন বনাম লোভ – একটি তথ্যচিত্র উদ্যোগ | সকল তথ্য সংবাদ ও সরকারি সূত্র থেকে সংগৃহীত</p>
-            <p><a href="index.html" style="color:#ffb347;">মূল গল্পে ফিরে যান</a></p>
+            <p>© ২০২৫ জীবন বনাম লোভ | একটি কার্টুন ডকুমেন্টারি উদ্যোগ</p>
+            <p>সকল তথ্য সংবাদ মাধ্যম ও সরকারি সূত্র থেকে সংগৃহীত।</p>
+            <p>
+                <a href="index.html">📄 মূল গল্প</a> | 
+                <a href="documentary.html">🎥 প্রামাণ্যচিত্র</a> | 
+                <a href="cartoon-documentary.html">🔍 ক্রাইম ফাইলস</a>
+            </p>
         </div>
     </footer>
 
     <!-- Chart.js Scripts -->
     <script>
-        // Forest Loss Chart
         const ctx1 = document.getElementById('forestLossChart').getContext('2d');
         new Chart(ctx1, {
             type: 'bar',
@@ -164,7 +195,7 @@
                 labels: ['২০১৯', '২০২০', '২০২১', '২০২২', '২০২৩', '২০২৪'],
                 datasets: [{
                     label: 'বন উজাড় (একর)',
-                    data: [1200, 1500, 2100, 2800, 3200, 1800], // 2024 dip due to cancellation?
+                    data: [1200, 1500, 2100, 2800, 3200, 1800],
                     backgroundColor: '#1f4f2b',
                     borderRadius: 8
                 }]
@@ -172,7 +203,6 @@
             options: { responsive: true, plugins: { legend: { display: false } } }
         });
 
-        // Elephant Deaths Chart
         const ctx2 = document.getElementById('elephantDeathsChart').getContext('2d');
         new Chart(ctx2, {
             type: 'line',
@@ -189,7 +219,6 @@
             }
         });
 
-        // Cases Chart
         const ctx3 = document.getElementById('casesChart').getContext('2d');
         new Chart(ctx3, {
             type: 'doughnut',
